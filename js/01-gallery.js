@@ -21,14 +21,10 @@ const gallery = galleryItems
 
 galleryListEl.innerHTML = gallery;
 
-const onClickUrl = (event) => event.preventDefault();
-
-const galleryLink = document.querySelectorAll(".gallery__link");
-galleryLink.forEach((link) => link.addEventListener("click", onClickUrl));
-
 galleryListEl.addEventListener("click", onClickGetBigImg);
 
 function onClickGetBigImg(event) {
+  event.preventDefault();
   if (event.target.nodeName !== "IMG") {
     return;
   }
@@ -41,6 +37,7 @@ function onClickGetBigImg(event) {
     if (event.code === "Escape") {
       instance.close();
     }
+    galleryListEl.removeEventListener("keydown", onClickEscape);
   };
 
   galleryListEl.addEventListener("keydown", onClickEscape);
