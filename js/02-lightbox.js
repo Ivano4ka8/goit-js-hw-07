@@ -15,11 +15,7 @@ const gallery = galleryItems
 
 galleryListEl.innerHTML = gallery; //додавання розмітки до штмл
 
-galleryListEl.addEventListener("click", onClickGetBigImg); //за допомогою делегування вішаємо слухача події на список
-
-function onClickGetBigImg(event) {
-  let gallery = new SimpleLightbox(".gallery .gallery__link", {
-    captionsData: "alt",
-    captionDelay: 250,
-  });
-}
+gallery = new SimpleLightbox(".gallery .gallery__link", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
